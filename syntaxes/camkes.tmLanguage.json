@@ -91,6 +91,34 @@
 				
 		},
 		{
+			"begin": "^\\s*(?:((#)\\s*pragma))\\b",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.directive.pragma.c"
+				},
+				"2": {
+					"name": "punctuation.definition.directive.c"
+				}
+			},
+			"end": "(?=(?://|/\\*))|(?<!\\\\)(?=\\n)",
+			"name": "meta.preprocessor.pragma.c",
+			"patterns": [
+				{
+					"include": "#strings"
+				},
+				{
+					"match": "[a-zA-Z_$][\\w\\-$]*",
+					"name": "entity.other.attribute-name.pragma.preprocessor.c"
+				},
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#line_continuation_character"
+				}
+			]
+		},
+		{
 			"name": "entity.name.function.camkes",
 			"begin": "(procedure)[a-zA-Z0-9_-]* ",
 			"beginCaptures": {
@@ -216,7 +244,7 @@
 		},
 		"storage_modifiers": {
 			"name": 	"keyword.control.camkes",
-			"match": 	"\\b(export|mutex|maybe|out|in|inout|refin)\\b"
+			"match": 	"\\b(export|mutex|maybe|out|in|inout|refin|from)\\b"
 		},
 		"line_continuation_character": {
 			"patterns": [
