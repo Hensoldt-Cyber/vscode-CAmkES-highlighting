@@ -1,0 +1,25 @@
+{
+    "name": "camkes-syntax-highlighting",
+    "displayName": "camkes-syntax-highlighting",
+    "description": "Syntax highlighting for the CAmkES (component architecture for microkernel-based embedded systems) language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "camkes",
+            "aliases": ["camkes", "camkes"],
+            "extensions": [".camkes"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "camkes",
+            "scopeName": "source.camkes",
+            "path": "./syntaxes/camkes.tmLanguage.json"
+        }]
+    }
+}
