@@ -13,9 +13,7 @@
 		{
 			"include": "#camkes_structure_keywords"
 		},
-		{
-			"include": "#component"
-		},
+		
 		{
 			"include": "#connection"
 		},
@@ -111,9 +109,6 @@
 					"name": "entity.other.attribute-name.pragma.preprocessor.c"
 				},
 				{
-					"include": "#numbers"
-				},
-				{
 					"include": "#line_continuation_character"
 				}
 			]
@@ -150,6 +145,9 @@
 		},
 		{
 			"include": "#posix_var"
+		},
+		{
+			"include": "#component"
 		},
 		{
 			"begin": "<",
@@ -208,8 +206,20 @@
 			
 		},
 		"component":{
-			"name": 		"meta.preprocessor.camkes",
-			"match": 		"component"
+	
+					"begin": 		"(component[ ]+)",
+					"beginCaptures": {
+						"1": {
+							"name": "meta.preprocessor.camkes"
+						}
+					},
+					"end": "[a-zA-Z0-9_-]*",
+					"endCaptures": {
+						"0": {
+							"name": "variable.object.camkes"
+						}
+					}
+			
 		},
 		"curly_brackets":{
 			"name": 		"punctuation.section.block.begin.bracket.curly.camkes",
@@ -244,7 +254,7 @@
 		},
 		"storage_modifiers": {
 			"name": 	"keyword.control.camkes",
-			"match": 	"\\b(export|mutex|maybe|out|in|inout|refin|from)\\b"
+			"match": 	"\\b(export|mutex|maybe|out|in|inout|refin|from|to)\\b"
 		},
 		"line_continuation_character": {
 			"patterns": [
