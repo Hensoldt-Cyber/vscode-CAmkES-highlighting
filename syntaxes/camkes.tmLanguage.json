@@ -216,7 +216,7 @@
 					"end": "[a-zA-Z0-9_-]*",
 					"endCaptures": {
 						"0": {
-							"name": "variable.object.camkes"
+							"name": "support.type.posix-reserved.camkes"
 						}
 					}
 			

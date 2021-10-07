@@ -2,7 +2,7 @@
     "name": "camkes-syntax-highlighting",
     "displayName": "camkes-syntax-highlighting",
     "description": "Syntax highlighting for the CAmkES (component architecture for microkernel-based embedded systems) language",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "repository": "test",
     "publisher": "FelixSchladt",
     "engines": {
@@ -13,13 +13,13 @@
     ],
     "contributes": {
         "languages": [{
-            "id": "camkes",
-            "aliases": ["camkes", "camkes"],
+            "id": "CAmkES",
+            "aliases": ["CAmkES", "camkes"],
             "extensions": [".camkes"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
-            "language": "camkes",
+            "language": "CAmkES",
             "scopeName": "source.camkes",
             "path": "./syntaxes/camkes.tmLanguage.json"
         }]
