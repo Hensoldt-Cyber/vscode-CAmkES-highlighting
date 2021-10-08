@@ -33,9 +33,6 @@
 			"include": "#storage_modifiers"
 		},
 		{
-			"include": "#dataport"
-		},
-		{
 			"match": "\\bk[A-Z]\\w*\\b",
 			"name": "constant.other.variable.mac-classic.camkes"
 		},
@@ -62,6 +59,12 @@
 		},
 		{
 			"include": "#line_continuation_character"
+		},
+		{
+			"include": "#component"
+		},
+		{
+			"match": "(control )|(emits )|(consumes )|(uses )"
 		},
 		{
 			
@@ -152,7 +155,7 @@
 			"include": "#posix_var"
 		},
 		{
-			"include": "#component"
+			"include": "#camkes_declarations"
 		},
 		{
 			"begin": "<",
@@ -177,22 +180,6 @@
 			"match": 		"assembly|composition|configuration|procedures"
 			
 		},
-		"component":{
-	
-					"begin": 		"(component[ ]+)",
-					"beginCaptures": {
-						"1": {
-							"name": "meta.preprocessor.camkes"
-						}
-					},
-					"end": "[a-zA-Z0-9_-]*",
-					"endCaptures": {
-						"0": {
-							"name": "support.type.posix-reserved.camkes"
-						}
-					}
-			
-		},
 		"curly_brackets":{
 			"name": 		"punctuation.section.block.begin.bracket.curly.camkes",
 			"match": 		"\\b({|})\\b"
@@ -213,8 +200,8 @@
 				"name": "punctuation.definition.comment.end.documentation.camkes"
 			}
 		},
-		"dataport":{
-			"begin": 		"(dataport[ ]+)",
+		"camkes_declarations":{
+			"begin": 		"(dataport[ ]+)|(control[ ]+)|(provides[ ]+)|(emits[ ]+)|(Vector[ ]+)|(export[ ]+)|(has[ ]+)|(uses[ ]+)|(attribute[ ]+)|(component[ ]+)",
 			"beginCaptures": {
 				"1": {
 					"name": "meta.preprocessor.camkes"
@@ -227,7 +214,22 @@
 				}
 			}
 	
-},
+		},
+		"component":{
+			"begin": 		"(component[ ]+)",
+			"beginCaptures": {
+				"1": {
+					"name": "meta.preprocessor.camkes"
+				}
+			},
+			"end": "[a-zA-Z0-9_-]*",
+			"endCaptures": {
+				"0": {
+					"name": "support.type.posix-reserved.camkes"
+				}
+			}
+	
+		},
 		"function-innards": {
 			"patterns": [
 				{
