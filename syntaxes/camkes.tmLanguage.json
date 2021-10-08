@@ -13,7 +13,9 @@
 		{
 			"include": "#camkes_structure_keywords"
 		},
-		
+		{
+			"include": "#uses"
+		},
 		{
 			"include": "#connection"
 		},
@@ -29,6 +31,9 @@
 		},
 		{
 			"include": "#storage_modifiers"
+		},
+		{
+			"include": "#dataport"
 		},
 		{
 			"match": "\\bk[A-Z]\\w*\\b",
@@ -166,40 +171,7 @@
 		}
 	],
 	"repository": {
-		"strings": {
-			"patterns": [
-				{
-					"begin": "\"",
-					"beginCaptures": {
-						"0": {
-							"name": "punctuation.definition.string.begin.camkes"
-						}
-					},
-					"end": "\"",
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.definition.string.end.camkes"
-						}
-					},
-					"name": "string.quoted.double.camkes"
-				},
-				{
-					"begin": "'",
-					"beginCaptures": {
-						"0": {
-							"name": "punctuation.definition.string.begin.camkes"
-						}
-					},
-					"end": "'",
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.definition.string.end.camkes"
-						}
-					},
-					"name": "string.quoted.single.camkes"
-				}
-			]
-		},
+		
 		"camkes_structure_keywords":{
 			"name": 		"keyword.control.camkes",
 			"match": 		"assembly|composition|configuration|procedures"
@@ -225,10 +197,7 @@
 			"name": 		"punctuation.section.block.begin.bracket.curly.camkes",
 			"match": 		"\\b({|})\\b"
 		},
-		"seL4_notifications":{
-			"name": 		"support.type.posix-reserved.camkes",
-			"match": 		"\\b(seL4Notification|seL4NotificationNative|seL4RPCCall|seL4SharedData)\\b"	
-		},
+		
 		"connection":{
 			"name": 		"meta.preprocessor.camkes",
 			"match": 		"connection"
@@ -244,30 +213,21 @@
 				"name": "punctuation.definition.comment.end.documentation.camkes"
 			}
 		},
-		"types_var": {
-			"name": 	"meta.preprocessor.camkes",
-			"match": 	"\\b(const|int|integer|int64_t|uint64_t|int16_t|uint16_t|int32_t|uint32_t|int8_t|uint8_t|unsigned|signed|string|struct|void)\\b"
-		},
-		"posix_var": {
-			"name": 	"support.type.posix-reserved.camkes",
-			"match": 	"(OS_Error_t)|(size_t)"
-		},
-		"storage_modifiers": {
-			"name": 	"keyword.control.camkes",
-			"match": 	"\\b(export|mutex|maybe|out|in|inout|refin|from|to)\\b"
-		},
-		"line_continuation_character": {
-			"patterns": [
-				{
-					"match": "(\\\\)\\n",
-					"captures": {
-						"1": {
-							"name": "constant.character.escape.line-continuation.camkes"
-						}
-					}
+		"dataport":{
+			"begin": 		"(dataport[ ]+)",
+			"beginCaptures": {
+				"1": {
+					"name": "meta.preprocessor.camkes"
 				}
-			]
-		},
+			},
+			"end": "[a-zA-Z0-9_-]*",
+			"endCaptures": {
+				"0": {
+					"name": "support.type.posix-reserved.camkes"
+				}
+			}
+	
+},
 		"function-innards": {
 			"patterns": [
 				{
@@ -335,6 +295,84 @@
 					]
 				}
 			]
+		},
+		"line_continuation_character": {
+			"patterns": [
+				{
+					"match": "(\\\\)\\n",
+					"captures": {
+						"1": {
+							"name": "constant.character.escape.line-continuation.camkes"
+						}
+					}
+				}
+			]
+		},
+		"posix_var": {
+			"name": 	"support.type.posix-reserved.camkes",
+			"match": 	"(OS_Error_t)|(size_t)|(Buf)"
+		},
+		"seL4_notifications":{
+			"name": 		"support.type.posix-reserved.camkes",
+			"match": 		"\\b(seL4Notification|seL4NotificationNative|seL4RPCCall|seL4SharedData)\\b"	
+		},
+		"storage_modifiers": {
+			"name": 	"keyword.control.camkes",
+			"match": 	"\\b(export|mutex|maybe|out|in|inout|refin|from|to)\\b"
+		},
+		"strings": {
+			"patterns": [
+				{
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.camkes"
+						}
+					},
+					"end": "\"",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.camkes"
+						}
+					},
+					"name": "string.quoted.double.camkes"
+				},
+				{
+					"begin": "'",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.camkes"
+						}
+					},
+					"end": "'",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.camkes"
+						}
+					},
+					"name": "string.quoted.single.camkes"
+				}
+			]
+		},
+		"types_var": {
+			"name": 	"meta.preprocessor.camkes",
+			"match": 	"\\b(const|int|integer|int64_t|uint64_t|int16_t|uint16_t|int32_t|uint32_t|int8_t|uint8_t|unsigned|signed|string|struct|void)\\b"
+		},
+		"uses":{
+	
+			"begin": 		"(uses[ ]+)",
+			"beginCaptures": {
+				"1": {
+					"name": "meta.preprocessor.camkes"
+				}
+			},
+			"end": "[a-zA-Z0-9_-]*",
+			"endCaptures": {
+				"0": {
+					"name": "support.type.posix-reserved.camkes"
+				}
+			}
+	
 		}
 	}
 }
