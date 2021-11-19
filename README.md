@@ -1,19 +1,47 @@
-# CAmkES syntax highlighting
+# Visual Studio Code plugin for CAmkES syntax hihlighting
+
+* written in a REGEX dialect called tmLanguage [tmLanguage](https://macromates.com/manual/en/language_grammars)
+
+## Install
+
+### Prepackaged version
+
+Download the prepackaged package [
+code --install-extension camkes-syntax-highlighting-0.0.6.vsix] (https://wiki.hensoldt-cyber.systems/download/attachments/14844307/camkes-syntax-highlighting-0.0.7.vsix?version=1&modificationDate=1637335449603&api=v2)
 
 
-## Overwiev
+``` 
+code --install-extension camkes-syntax-highlighting-0.0.*.vsix
+```
 
-* Enables syntax highlighting in VSCode for the CAmkES (component architecture for microkernel-based embedded systems) language
-* CAmkES is a component architecture language for the development of applications based upon microkernel architectures like seL4
+### Package it yourself
 
-## CAmkES documentation & repository
+Nodejs  version 14.0.0 or higher is required to package the extension. The apt repositories are currently only supporting version v10.0.0 but we can update it over the npm package manager
 
-* [CAmkES documentation] (https://docs.sel4.systems/projects/camkes/)
-* [CAmkEs github] (https://github.com/seL4/camkes-tool)
+```
+sudo apt install nodejs npm
+sudo npm cahe -clean -f
+sudo npm install -g n
+sudo n stable
+```
 
-## Contributions
+To package we need the vsce package
 
-Contributions on github are welcome. 
-[Repository] (https://github.com)
+```
+sudo npm install vsce
+```
 
+We then need to clone the repo and package it
+
+```
+git clone ssh://git@bitbucket.hensoldt-cyber.systems:7999/hc/vscode-camkes-syntax-highlighting.git
+cd vscode-camkes-syntax-highlighting
+vsce package
+```
+
+install the package
+
+```
+code --install-extension camkes-syntax-highlighting-0.0.*.vsix
+```
 
