@@ -7,7 +7,7 @@
 ### Prepackaged version
 
 
-Download the prepackaged package [camkes-syntax-highlighting] (https://wiki.hensoldt-cyber.systems/download/attachments/14844307/camkes-syntax-highlighting-0.0.7.vsix?version=1&modificationDate=1637335449603&api=v2)
+Download the prepackaged package [camkes-syntax-highlighting](https://wiki.hensoldt-cyber.systems/download/attachments/14844307/camkes-syntax-highlighting-0.0.7.vsix?version=1&modificationDate=1637335449603&api=v2)
 
 
 ``` 
