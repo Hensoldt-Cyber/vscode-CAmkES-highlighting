@@ -1,7 +1,7 @@
 # Visual Studio Code plugin for CAmkES syntax hihlighting
 
 * written in a REGEX dialect called tmLanguage [tmLanguage](https://macromates.com/manual/en/language_grammars)
-* Work in progress: If you encounter a bug please send me a screenshot -> maybe it could be published to the vscode extension market place when mature
+* Work in progress: If you encounter a bug please send me a screenshot -> maybe it could be published to the vscode extension marketplace when mature
 * This reuses some parts of the official [Microsoft C syntax extension](https://github.com/microsoft/vscode/tree/main/extensions/cpp) which is published under the MIT License -> though only some parts are copied, a distribution under MIT might be ?neccessary?
 
 
