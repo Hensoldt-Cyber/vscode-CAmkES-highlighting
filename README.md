@@ -6,13 +6,15 @@
 
 ### Prepackaged version
 
-Download the prepackaged package [
-code --install-extension camkes-syntax-highlighting-0.0.6.vsix] (https://wiki.hensoldt-cyber.systems/download/attachments/14844307/camkes-syntax-highlighting-0.0.7.vsix?version=1&modificationDate=1637335449603&api=v2)
+
+Download the prepackaged package [camkes-syntax-highlighting-0.0.6.vsix] (https://wiki.hensoldt-cyber.systems/download/attachments/14844307/camkes-syntax-highlighting-0.0.7.vsix?version=1&modificationDate=1637335449603&api=v2)
 
 
 ``` 
 code --install-extension camkes-syntax-highlighting-0.0.*.vsix
 ```
+
+
 
 ### Package it yourself
 
@@ -25,11 +27,13 @@ sudo npm install -g n
 sudo n stable
 ```
 
+
 To package we need the vsce package
 
 ```
 sudo npm install vsce
 ```
+
 
 We then need to clone the repo and package it
 
@@ -38,6 +42,7 @@ git clone ssh://git@bitbucket.hensoldt-cyber.systems:7999/hc/vscode-camkes-synta
 cd vscode-camkes-syntax-highlighting
 vsce package
 ```
+
 
 install the package
 
