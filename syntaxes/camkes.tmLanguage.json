@@ -932,7 +932,7 @@
 		},
 		"posix_var": {
 			"name": 	"support.type.posix-reserved.camkes",
-			"match": 	"(OS_Error_t)|(size_t)|(Buf)|dataport_ptr_t|intptr_t|OS_Socket_Addr_t|OS_NetworkStack_State_t"
+			"match": 	"(OS_Error_t)|(size_t)|(Buf)|dataport_ptr_t|intptr_t"
 		},
 		"seL4_notifications":{
 			"name": 		"support.type.posix-reserved.camkes",
