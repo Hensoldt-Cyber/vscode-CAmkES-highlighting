@@ -64,6 +64,6 @@ code --install-extension camkes-syntax-highlighting-0.0.*.vsix
 There seems to be an bug inside vscode, showing that an internal function is pdepreciated, when installing an extension from the commandline.
 This seems to be a well known issue, with multiple open tickets and is unrelated to the extension.
 
-[Issue](https://github.com/microsoft/vscode/issues/136874)
+[install-extension command throws Buffer deprecated warning](https://github.com/microsoft/vscode/issues/82524)
 
 
