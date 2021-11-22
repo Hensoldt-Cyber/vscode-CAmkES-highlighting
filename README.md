@@ -5,6 +5,7 @@
 * This reuses some parts of the official [Microsoft C syntax extension](https://github.com/microsoft/vscode/tree/main/extensions/cpp) which is published under the MIT License -> though only some parts are copied, a distribution under MIT might be ?neccessary?
 
 
+
 ## Installation
 
 ### Prepackaged version
@@ -56,4 +57,13 @@ install the package
 ```
 code --install-extension camkes-syntax-highlighting-0.0.*.vsix
 ```
+
+
+### Buffer depreciated warning
+
+There seems to be an bug inside vscode, showing that an internal function is pdepreciated, when installing an extension from the commandline.
+This seems to be a well known issue, with multiple open tickets and is unrelated to the extension.
+
+[Issue](https://github.com/microsoft/vscode/issues/136874)
+
 

@@ -936,7 +936,7 @@
 		},
 		"seL4_notifications":{
 			"name": 		"support.type.posix-reserved.camkes",
-			"match": 		"\\b(seL4Notification|seL4NotificationNative|seL4RPCCall|seL4SharedData)\\b"	
+			"match": 		"\\b(seL4Ethdriver|seL4GlobalAsynchCallback|seL4GlobalAsync|seL4MessageQueue|seL4RPCCallSignal|seL4RPCDataport|seL4RPCDataportSignal|seL4RPCOverMultiSharedData|seL4RPCOverMultiSharedData|seL4VirtQueues|seL4DirectCall|seL4Notification|seL4NotificationBind|seL4NotificationNative|seL4NotificationQueue|seL4RPCCall|seL4DTBHardware|seL4RPCCallNoType|seL4SharedData|seL4HardwareMMIO|seL4HardwareIOPort|seL4HardwareInterrupt|seL4IOAPICHardwareInterrupt)\\b"	
 		},
 		"storage_modifiers": {
 			"name": 	"keyword.control.camkes",
