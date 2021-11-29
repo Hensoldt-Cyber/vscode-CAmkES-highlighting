@@ -9,7 +9,6 @@
 		{
 			"include": "#comments"
 		},
-		
 		{
 			"include": "#camkes_structure_keywords"
 		},
@@ -73,7 +72,7 @@
 			"match": "(control )|(emits )|(consumes )|(uses )"
 		},
 		{
-			"name": "meta.preprocessor.macro.c",
+			"name": "meta.preprocessor.macro.camkes",
 			"begin": "((?:(?:(?>\\s+)|(\\/\\*)((?>(?:[^\\*]|(?>\\*+)[^\\/])*)((?>\\*+)\\/)))+?|(?:(?:(?:(?:\\b|(?<=\\W))|(?=\\W))|\\A)|\\Z)))((#)\\s*define\\b)\\s+((?<!\\w)[a-zA-Z_]\\w*(?!\\w))(?:(\\()([^()\\\\]+)(\\)))?",
 			"beginCaptures": {
 				"1": {
@@ -84,34 +83,34 @@
 					]
 				},
 				"2": {
-					"name": "comment.block.c punctuation.definition.comment.begin.c"
+					"name": "comment.block.camkes punctuation.definition.comment.begin.camkes"
 				},
 				"3": {
-					"name": "comment.block.c"
+					"name": "comment.block.camkes"
 				},
 				"4": {
 					"patterns": [
 						{
 							"match": "\\*\\/",
-							"name": "comment.block.c punctuation.definition.comment.end.c"
+							"name": "comment.block.camkes punctuation.definition.comment.end.camkes"
 						},
 						{
 							"match": "\\*",
-							"name": "comment.block.c"
+							"name": "comment.block.camkes"
 						}
 					]
 				},
 				"5": {
-					"name": "keyword.control.directive.define.c"
+					"name": "keyword.control.directive.define.camkes"
 				},
 				"6": {
-					"name": "punctuation.definition.directive.c"
+					"name": "punctuation.definition.directive.camkes"
 				},
 				"7": {
-					"name": "entity.name.function.preprocessor.c"
+					"name": "entity.name.function.preprocessor.camkes"
 				},
 				"8": {
-					"name": "punctuation.definition.parameters.begin.c"
+					"name": "punctuation.definition.parameters.begin.camkes"
 				},
 				"9": {
 					"patterns": [
@@ -119,22 +118,22 @@
 							"match": "(?<=[(,])\\s*((?<!\\w)[a-zA-Z_]\\w*(?!\\w))\\s*",
 							"captures": {
 								"1": {
-									"name": "variable.parameter.preprocessor.c"
+									"name": "variable.parameter.preprocessor.camkes"
 								}
 							}
 						},
 						{
 							"match": ",",
-							"name": "punctuation.separator.parameters.c"
+							"name": "punctuation.separator.parameters.camkes"
 						},
 						{
 							"match": "\\.\\.\\.",
-							"name": "ellipses.c punctuation.vararg-ellipses.variable.parameter.preprocessor.c"
+							"name": "ellipses.camkes punctuation.vararg-ellipses.variable.parameter.preprocessor.camkes"
 						}
 					]
 				},
 				"10": {
-					"name": "punctuation.definition.parameters.end.c"
+					"name": "punctuation.definition.parameters.end.camkes"
 				}
 			},
 			"end": "(?<!\\\\)(?=\\n)",
@@ -144,7 +143,6 @@
 				}
 			]
 		},
-		
 		{
 			"name": 	"keyword.control.camkes",
 			"match": 	"->|<-"
@@ -157,14 +155,39 @@
 			"begin": "^\\s*(?:((#)\\s*ifdef))\\b",
 			"beginCaptures": {
 				"1": {
-					"name": "keyword.control.directive.pragma.c"
+					"name": "keyword.control.directive.pragma.camkes"
 				},
 				"2": {
-					"name": "punctuation.definition.directive.c"
+					"name": "punctuation.definition.directive.camkes"
 				}
 			},
 			"end": "(?=(?://|/\\*))|(?<!\\\\)(?=\\n)",
-			"name": "meta.preprocessor.pragma.c",
+			"name": "meta.preprocessor.pragma.camkes",
+			"patterns": [
+				{
+					"include": "#strings"
+				},
+				{
+					"match": "[a-zA-Z_$][\\w\\-$]*",
+					"name": "meta.preprocessor.camkes"
+				},
+				{
+					"include": "#line_continuation_character"
+				}
+			]
+		},
+		{
+			"begin": "^\\s*(?:((#)\\s*if))\\b",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.directive.pragma.camkes"
+				},
+				"2": {
+					"name": "punctuation.definition.directive.camkes"
+				}
+			},
+			"end": "(?=(?://|/\\*))|(?<!\\\\)(?=\\n)",
+			"name": "meta.preprocessor.pragma.camkes",
 			"patterns": [
 				{
 					"include": "#strings"
@@ -182,28 +205,27 @@
 			"begin": "^\\s*(?:((#)\\s*pragma))\\b",
 			"beginCaptures": {
 				"1": {
-					"name": "keyword.control.directive.pragma.c"
+					"name": "keyword.control.directive.pragma.camkes"
 				},
 				"2": {
-					"name": "punctuation.definition.directive.c"
+					"name": "punctuation.definition.directive.camkes"
 				}
 			},
 			"end": "(?=(?://|/\\*))|(?<!\\\\)(?=\\n)",
-			"name": "meta.preprocessor.pragma.c",
+			"name": "meta.preprocessor.pragma.camkes",
 			"patterns": [
 				{
 					"include": "#strings"
 				},
 				{
 					"match": "[a-zA-Z_$][\\w\\-$]*",
-					"name": "entity.other.attribute-name.pragma.preprocessor.c"
+					"name": "entity.other.attribute-name.pragma.preprocessor.camkes"
 				},
 				{
 					"include": "#line_continuation_character"
 				}
 			]
 		},
-		
 		{
 			"name": "entity.name.function.camkes",
 			"begin": "(procedure)[a-zA-Z0-9_-]* ",
@@ -230,7 +252,6 @@
 			]
 				
 		},
-		
 		{
 			"include": "#posix_var"
 		},
@@ -254,6 +275,9 @@
 		},
 		{
 			"include": "#terminator"
+		},
+		{
+			"include": "#preprocessor-rule-conditional"
 		}
 	],
 	"repository": {
@@ -266,16 +290,16 @@
 					"begin": "{",
 					"beginCaptures": {
 						"0": {
-							"name": "punctuation.section.block.begin.bracket.curly.c"
+							"name": "punctuation.section.block.begin.bracket.curly.camkes"
 						}
 					},
 					"end": "}|(?=\\s*#\\s*(?:elif|else|endif)\\b)|(?<!\\\\)(?=\\s*\\n)",
 					"endCaptures": {
 						"0": {
-							"name": "punctuation.section.block.end.bracket.curly.c"
+							"name": "punctuation.section.block.end.bracket.curly.camkes"
 						}
 					},
-					"name": "meta.block.c",
+					"name": "meta.block.camkes",
 					"patterns": [
 						{
 							"include": "#preprocessor-rule-define-line-blocks"
@@ -284,16 +308,16 @@
 				},
 				{
 					"match": "\\(",
-					"name": "punctuation.section.parens.begin.bracket.round.c"
+					"name": "punctuation.section.parens.begin.bracket.round.camkes"
 				},
 				{
 					"match": "\\)",
-					"name": "punctuation.section.parens.end.bracket.round.c"
+					"name": "punctuation.section.parens.end.bracket.round.camkes"
 				},
 				{
 					"begin": "(?x)\n(?!(?:while|for|do|if|else|switch|catch|enumerate|return|typeid|alignof|alignas|sizeof|[cr]?iterate|and|and_eq|bitand|bitor|compl|not|not_eq|or|or_eq|typeid|xor|xor_eq|alignof|alignas|asm|__asm__|auto|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|typedef|union|unsigned|void)\\s*\\()\n(?=\n  (?:[A-Za-z_][A-Za-z0-9_]*+|::)++\\s*\\(  # actual name\n  |\n  (?:(?<=operator)(?:[-*&<>=+!]+|\\(\\)|\\[\\]))\\s*\\(\n)",
 					"end": "(?<=\\))(?!\\w)|(?<!\\\\)(?=\\s*\\n)",
-					"name": "meta.function.c",
+					"name": "meta.function.camkes",
 					"patterns": [
 						{
 							"include": "#preprocessor-rule-define-line-functions"
@@ -304,16 +328,16 @@
 					"begin": "\"",
 					"beginCaptures": {
 						"0": {
-							"name": "punctuation.definition.string.begin.c"
+							"name": "punctuation.definition.string.begin.camkes"
 						}
 					},
 					"end": "\"|(?<!\\\\)(?=\\s*\\n)",
 					"endCaptures": {
 						"0": {
-							"name": "punctuation.definition.string.end.c"
+							"name": "punctuation.definition.string.end.camkes"
 						}
 					},
-					"name": "string.quoted.double.c",
+					"name": "string.quoted.double.camkes",
 					"patterns": [
 						{
 							"include": "#string_escaped_char"
@@ -330,16 +354,16 @@
 					"begin": "'",
 					"beginCaptures": {
 						"0": {
-							"name": "punctuation.definition.string.begin.c"
+							"name": "punctuation.definition.string.begin.camkes"
 						}
 					},
 					"end": "'|(?<!\\\\)(?=\\s*\\n)",
 					"endCaptures": {
 						"0": {
-							"name": "punctuation.definition.string.end.c"
+							"name": "punctuation.definition.string.end.camkes"
 						}
 					},
-					"name": "string.quoted.single.c",
+					"name": "string.quoted.single.camkes",
 					"patterns": [
 						{
 							"include": "#string_escaped_char"
@@ -365,17 +389,17 @@
 			]
 		},
 		"method_access": {
-			"contentName": "meta.function-call.member.c",
+			"contentName": "meta.function-call.member.camkes",
 			"begin": "((?:[a-zA-Z_]\\w*|(?<=\\]|\\)))\\s*)(?:((?:\\.\\*|\\.))|((?:->\\*|->)))((?:[a-zA-Z_]\\w*\\s*(?:(?:(?:\\.\\*|\\.))|(?:(?:->\\*|->)))\\s*)*)\\s*([a-zA-Z_]\\w*)(\\()",
 			"beginCaptures": {
 				"1": {
-					"name": "variable.other.object.access.c"
+					"name": "variable.other.object.access.camkes"
 				},
 				"2": {
-					"name": "punctuation.separator.dot-access.c"
+					"name": "punctuation.separator.dot-access.camkes"
 				},
 				"3": {
-					"name": "punctuation.separator.pointer-access.c"
+					"name": "punctuation.separator.pointer-access.camkes"
 				},
 				"4": {
 					"patterns": [
@@ -389,29 +413,29 @@
 							"match": "((?:[a-zA-Z_]\\w*|(?<=\\]|\\)))\\s*)(?:((?:\\.\\*|\\.))|((?:->\\*|->)))",
 							"captures": {
 								"1": {
-									"name": "variable.other.object.access.c"
+									"name": "variable.other.object.access.camkes"
 								},
 								"2": {
-									"name": "punctuation.separator.dot-access.c"
+									"name": "punctuation.separator.dot-access.camkes"
 								},
 								"3": {
-									"name": "punctuation.separator.pointer-access.c"
+									"name": "punctuation.separator.pointer-access.camkes"
 								}
 							}
 						}
 					]
 				},
 				"5": {
-					"name": "entity.name.function.member.c"
+					"name": "entity.name.function.member.camkes"
 				},
 				"6": {
-					"name": "punctuation.section.arguments.begin.bracket.round.function.member.c"
+					"name": "punctuation.section.arguments.begin.bracket.round.function.member.camkes"
 				}
 			},
 			"end": "(\\))",
 			"endCaptures": {
 				"1": {
-					"name": "punctuation.section.arguments.end.bracket.round.function.member.c"
+					"name": "punctuation.section.arguments.end.bracket.round.function.member.camkes"
 				}
 			},
 			"patterns": [
@@ -424,13 +448,13 @@
 			"match": "((?:[a-zA-Z_]\\w*|(?<=\\]|\\)))\\s*)(?:((?:\\.\\*|\\.))|((?:->\\*|->)))((?:[a-zA-Z_]\\w*\\s*(?:(?:(?:\\.\\*|\\.))|(?:(?:->\\*|->)))\\s*)*)\\s*(\\b(?!(?:atomic_uint_least64_t|atomic_uint_least16_t|atomic_uint_least32_t|atomic_uint_least8_t|atomic_int_least16_t|atomic_uint_fast64_t|atomic_uint_fast32_t|atomic_int_least64_t|atomic_int_least32_t|pthread_rwlockattr_t|atomic_uint_fast16_t|pthread_mutexattr_t|atomic_int_fast16_t|atomic_uint_fast8_t|atomic_int_fast64_t|atomic_int_least8_t|atomic_int_fast32_t|atomic_int_fast8_t|pthread_condattr_t|atomic_uintptr_t|atomic_ptrdiff_t|pthread_rwlock_t|atomic_uintmax_t|pthread_mutex_t|atomic_intmax_t|atomic_intptr_t|atomic_char32_t|atomic_char16_t|pthread_attr_t|atomic_wchar_t|uint_least64_t|uint_least32_t|uint_least16_t|pthread_cond_t|pthread_once_t|uint_fast64_t|uint_fast16_t|atomic_size_t|uint_least8_t|int_least64_t|int_least32_t|int_least16_t|pthread_key_t|atomic_ullong|atomic_ushort|uint_fast32_t|atomic_schar|atomic_short|uint_fast8_t|int_fast64_t|int_fast32_t|int_fast16_t|atomic_ulong|atomic_llong|int_least8_t|atomic_uchar|memory_order|suseconds_t|int_fast8_t|atomic_bool|atomic_char|atomic_uint|atomic_long|atomic_int|useconds_t|_Imaginary|blksize_t|pthread_t|in_addr_t|uintptr_t|in_port_t|uintmax_t|uintmax_t|blkcnt_t|uint16_t|unsigned|_Complex|uint32_t|intptr_t|intmax_t|intmax_t|uint64_t|u_quad_t|int64_t|int32_t|ssize_t|caddr_t|clock_t|uint8_t|u_short|swblk_t|segsz_t|int16_t|fixpt_t|daddr_t|nlink_t|qaddr_t|size_t|time_t|mode_t|signed|quad_t|ushort|u_long|u_char|double|int8_t|ino_t|uid_t|pid_t|_Bool|float|dev_t|div_t|short|gid_t|off_t|u_int|key_t|id_t|uint|long|void|char|bool|id_t|int)\\b)[a-zA-Z_]\\w*\\b(?!\\())",
 			"captures": {
 				"1": {
-					"name": "variable.other.object.access.c"
+					"name": "variable.other.object.access.camkes"
 				},
 				"2": {
-					"name": "punctuation.separator.dot-access.c"
+					"name": "punctuation.separator.dot-access.camkes"
 				},
 				"3": {
-					"name": "punctuation.separator.pointer-access.c"
+					"name": "punctuation.separator.pointer-access.camkes"
 				},
 				"4": {
 					"patterns": [
@@ -444,20 +468,20 @@
 							"match": "((?:[a-zA-Z_]\\w*|(?<=\\]|\\)))\\s*)(?:((?:\\.\\*|\\.))|((?:->\\*|->)))",
 							"captures": {
 								"1": {
-									"name": "variable.other.object.access.c"
+									"name": "variable.other.object.access.camkes"
 								},
 								"2": {
-									"name": "punctuation.separator.dot-access.c"
+									"name": "punctuation.separator.dot-access.camkes"
 								},
 								"3": {
-									"name": "punctuation.separator.pointer-access.c"
+									"name": "punctuation.separator.pointer-access.camkes"
 								}
 							}
 						}
 					]
 				},
 				"5": {
-					"name": "variable.other.member.c"
+					"name": "variable.other.member.camkes"
 				}
 			}
 		},
@@ -477,11 +501,11 @@
 		"comments": {
 			"patterns": [
 				{
-					"name": "comment.line.double-slash.documentation.c",
+					"name": "comment.line.double-slash.documentation.camkes",
 					"begin": "(?:^)(?>\\s*)(\\/\\/[!\\/]+)",
 					"beginCaptures": {
 						"1": {
-							"name": "punctuation.definition.comment.documentation.c"
+							"name": "punctuation.definition.comment.documentation.camkes"
 						}
 					},
 					"end": "(?<=\\n)(?<!\\\\\\n)",
@@ -491,16 +515,16 @@
 						},
 						{
 							"match": "(?<=[\\s*!\\/])[\\\\@](?:callergraph|callgraph|else|endif|f\\$|f\\[|f\\]|hidecallergraph|hidecallgraph|hiderefby|hiderefs|hideinitializer|htmlinclude|n|nosubgrouping|private|privatesection|protected|protectedsection|public|publicsection|pure|showinitializer|showrefby|showrefs|tableofcontents|\\$|\\#|<|>|%|\"|\\.|=|::|\\||\\-\\-|\\-\\-\\-)\\b(?:\\{[^}]*\\})?",
-							"name": "storage.type.class.doxygen.c"
+							"name": "storage.type.class.doxygen.camkes"
 						},
 						{
 							"match": "((?<=[\\s*!\\/])[\\\\@](?:a|em|e))\\s+(\\S+)",
 							"captures": {
 								"1": {
-									"name": "storage.type.class.doxygen.c"
+									"name": "storage.type.class.doxygen.camkes"
 								},
 								"2": {
-									"name": "markup.italic.doxygen.c"
+									"name": "markup.italic.doxygen.camkes"
 								}
 							}
 						},
@@ -508,10 +532,10 @@
 							"match": "((?<=[\\s*!\\/])[\\\\@]b)\\s+(\\S+)",
 							"captures": {
 								"1": {
-									"name": "storage.type.class.doxygen.c"
+									"name": "storage.type.class.doxygen.camkes"
 								},
 								"2": {
-									"name": "markup.bold.doxygen.c"
+									"name": "markup.bold.doxygen.camkes"
 								}
 							}
 						},
@@ -519,47 +543,47 @@
 							"match": "((?<=[\\s*!\\/])[\\\\@](?:c|p))\\s+(\\S+)",
 							"captures": {
 								"1": {
-									"name": "storage.type.class.doxygen.c"
+									"name": "storage.type.class.doxygen.camkes"
 								},
 								"2": {
-									"name": "markup.inline.raw.string.c"
+									"name": "markup.inline.raw.string.camkes"
 								}
 							}
 						},
 						{
 							"match": "(?<=[\\s*!\\/])[\\\\@](?:a|anchor|b|c|cite|copybrief|copydetail|copydoc|def|dir|dontinclude|e|em|emoji|enum|example|extends|file|idlexcept|implements|include|includedoc|includelineno|latexinclude|link|memberof|namespace|p|package|ref|refitem|related|relates|relatedalso|relatesalso|verbinclude)\\b(?:\\{[^}]*\\})?",
-							"name": "storage.type.class.doxygen.c"
+							"name": "storage.type.class.doxygen.camkes"
 						},
 						{
 							"match": "(?<=[\\s*!\\/])[\\\\@](?:addindex|addtogroup|category|class|defgroup|diafile|dotfile|elseif|fn|headerfile|if|ifnot|image|ingroup|interface|line|mainpage|mscfile|name|overload|page|property|protocol|section|skip|skipline|snippet|snippetdoc|snippetlineno|struct|subpage|subsection|subsubsection|typedef|union|until|vhdlflow|weakgroup)\\b(?:\\{[^}]*\\})?",
-							"name": "storage.type.class.doxygen.c"
+							"name": "storage.type.class.doxygen.camkes"
 						},
 						{
 							"match": "((?<=[\\s*!\\/])[\\\\@]param)(?:\\s*\\[((?:,?\\s*(?:in|out)\\s*)+)\\])?\\s+(\\b\\w+\\b)",
 							"captures": {
 								"1": {
-									"name": "storage.type.class.doxygen.c"
+									"name": "storage.type.class.doxygen.camkes"
 								},
 								"2": {
 									"patterns": [
 										{
 											"match": "in|out",
-											"name": "keyword.other.parameter.direction.$0.c"
+											"name": "keyword.other.parameter.direction.$0.camkes"
 										}
 									]
 								},
 								"3": {
-									"name": "variable.parameter.c"
+									"name": "variable.parameter.camkes"
 								}
 							}
 						},
 						{
 							"match": "(?<=[\\s*!\\/])[\\\\@](?:arg|attention|author|authors|brief|bug|copyright|date|deprecated|details|exception|invariant|li|note|par|paragraph|param|post|pre|remark|remarks|result|return|returns|retval|sa|see|short|since|test|throw|todo|tparam|version|warning|xrefitem)\\b(?:\\{[^}]*\\})?",
-							"name": "storage.type.class.doxygen.c"
+							"name": "storage.type.class.doxygen.camkes"
 						},
 						{
 							"match": "(?<=[\\s*!\\/])[\\\\@](?:code|cond|docbookonly|dot|htmlonly|internal|latexonly|link|manonly|msc|parblock|rtfonly|secreflist|uml|verbatim|xmlonly|endcode|endcond|enddocbookonly|enddot|endhtmlonly|endinternal|endlatexonly|endlink|endmanonly|endmsc|endparblock|endrtfonly|endsecreflist|enduml|endverbatim|endxmlonly)\\b(?:\\{[^}]*\\})?",
-							"name": "storage.type.class.doxygen.c"
+							"name": "storage.type.class.doxygen.camkes"
 						},
 						{
 							"match": "(?:\\b[A-Z]+:|@[a-z_]+:)",
@@ -571,22 +595,22 @@
 					"match": "(\\/\\*[!*]+(?=\\s))(.+)([!*]*\\*\\/)",
 					"captures": {
 						"1": {
-							"name": "punctuation.definition.comment.begin.documentation.c"
+							"name": "punctuation.definition.comment.begin.documentation.camkes"
 						},
 						"2": {
 							"patterns": [
 								{
 									"match": "(?<=[\\s*!\\/])[\\\\@](?:callergraph|callgraph|else|endif|f\\$|f\\[|f\\]|hidecallergraph|hidecallgraph|hiderefby|hiderefs|hideinitializer|htmlinclude|n|nosubgrouping|private|privatesection|protected|protectedsection|public|publicsection|pure|showinitializer|showrefby|showrefs|tableofcontents|\\$|\\#|<|>|%|\"|\\.|=|::|\\||\\-\\-|\\-\\-\\-)\\b(?:\\{[^}]*\\})?",
-									"name": "storage.type.class.doxygen.c"
+									"name": "storage.type.class.doxygen.camkes"
 								},
 								{
 									"match": "((?<=[\\s*!\\/])[\\\\@](?:a|em|e))\\s+(\\S+)",
 									"captures": {
 										"1": {
-											"name": "storage.type.class.doxygen.c"
+											"name": "storage.type.class.doxygen.camkes"
 										},
 										"2": {
-											"name": "markup.italic.doxygen.c"
+											"name": "markup.italic.doxygen.camkes"
 										}
 									}
 								},
@@ -594,10 +618,10 @@
 									"match": "((?<=[\\s*!\\/])[\\\\@]b)\\s+(\\S+)",
 									"captures": {
 										"1": {
-											"name": "storage.type.class.doxygen.c"
+											"name": "storage.type.class.doxygen.camkes"
 										},
 										"2": {
-											"name": "markup.bold.doxygen.c"
+											"name": "markup.bold.doxygen.camkes"
 										}
 									}
 								},
@@ -605,47 +629,47 @@
 									"match": "((?<=[\\s*!\\/])[\\\\@](?:c|p))\\s+(\\S+)",
 									"captures": {
 										"1": {
-											"name": "storage.type.class.doxygen.c"
+											"name": "storage.type.class.doxygen.camkes"
 										},
 										"2": {
-											"name": "markup.inline.raw.string.c"
+											"name": "markup.inline.raw.string.camkes"
 										}
 									}
 								},
 								{
 									"match": "(?<=[\\s*!\\/])[\\\\@](?:a|anchor|b|c|cite|copybrief|copydetail|copydoc|def|dir|dontinclude|e|em|emoji|enum|example|extends|file|idlexcept|implements|include|includedoc|includelineno|latexinclude|link|memberof|namespace|p|package|ref|refitem|related|relates|relatedalso|relatesalso|verbinclude)\\b(?:\\{[^}]*\\})?",
-									"name": "storage.type.class.doxygen.c"
+									"name": "storage.type.class.doxygen.camkes"
 								},
 								{
 									"match": "(?<=[\\s*!\\/])[\\\\@](?:addindex|addtogroup|category|class|defgroup|diafile|dotfile|elseif|fn|headerfile|if|ifnot|image|ingroup|interface|line|mainpage|mscfile|name|overload|page|property|protocol|section|skip|skipline|snippet|snippetdoc|snippetlineno|struct|subpage|subsection|subsubsection|typedef|union|until|vhdlflow|weakgroup)\\b(?:\\{[^}]*\\})?",
-									"name": "storage.type.class.doxygen.c"
+									"name": "storage.type.class.doxygen.camkes"
 								},
 								{
 									"match": "((?<=[\\s*!\\/])[\\\\@]param)(?:\\s*\\[((?:,?\\s*(?:in|out)\\s*)+)\\])?\\s+(\\b\\w+\\b)",
 									"captures": {
 										"1": {
-											"name": "storage.type.class.doxygen.c"
+											"name": "storage.type.class.doxygen.camkes"
 										},
 										"2": {
 											"patterns": [
 												{
 													"match": "in|out",
-													"name": "keyword.other.parameter.direction.$0.c"
+													"name": "keyword.other.parameter.direction.$0.camkes"
 												}
 											]
 										},
 										"3": {
-											"name": "variable.parameter.c"
+											"name": "variable.parameter.camkes"
 										}
 									}
 								},
 								{
 									"match": "(?<=[\\s*!\\/])[\\\\@](?:arg|attention|author|authors|brief|bug|copyright|date|deprecated|details|exception|invariant|li|note|par|paragraph|param|post|pre|remark|remarks|result|return|returns|retval|sa|see|short|since|test|throw|todo|tparam|version|warning|xrefitem)\\b(?:\\{[^}]*\\})?",
-									"name": "storage.type.class.doxygen.c"
+									"name": "storage.type.class.doxygen.camkes"
 								},
 								{
 									"match": "(?<=[\\s*!\\/])[\\\\@](?:code|cond|docbookonly|dot|htmlonly|internal|latexonly|link|manonly|msc|parblock|rtfonly|secreflist|uml|verbatim|xmlonly|endcode|endcond|enddocbookonly|enddot|endhtmlonly|endinternal|endlatexonly|endlink|endmanonly|endmsc|endparblock|endrtfonly|endsecreflist|enduml|endverbatim|endxmlonly)\\b(?:\\{[^}]*\\})?",
-									"name": "storage.type.class.doxygen.c"
+									"name": "storage.type.class.doxygen.camkes"
 								},
 								{
 									"match": "(?:\\b[A-Z]+:|@[a-z_]+:)",
@@ -654,38 +678,38 @@
 							]
 						},
 						"3": {
-							"name": "punctuation.definition.comment.end.documentation.c"
+							"name": "punctuation.definition.comment.end.documentation.camkes"
 						}
 					},
-					"name": "comment.block.documentation.c"
+					"name": "comment.block.documentation.camkes"
 				},
 				{
-					"name": "comment.block.documentation.c",
+					"name": "comment.block.documentation.camkes",
 					"begin": "((?>\\s*)\\/\\*[!*]+(?:(?:\\n|$)|(?=\\s)))",
 					"beginCaptures": {
 						"1": {
-							"name": "punctuation.definition.comment.begin.documentation.c"
+							"name": "punctuation.definition.comment.begin.documentation.camkes"
 						}
 					},
 					"end": "([!*]*\\*\\/)",
 					"endCaptures": {
 						"1": {
-							"name": "punctuation.definition.comment.end.documentation.c"
+							"name": "punctuation.definition.comment.end.documentation.camkes"
 						}
 					},
 					"patterns": [
 						{
 							"match": "(?<=[\\s*!\\/])[\\\\@](?:callergraph|callgraph|else|endif|f\\$|f\\[|f\\]|hidecallergraph|hidecallgraph|hiderefby|hiderefs|hideinitializer|htmlinclude|n|nosubgrouping|private|privatesection|protected|protectedsection|public|publicsection|pure|showinitializer|showrefby|showrefs|tableofcontents|\\$|\\#|<|>|%|\"|\\.|=|::|\\||\\-\\-|\\-\\-\\-)\\b(?:\\{[^}]*\\})?",
-							"name": "storage.type.class.doxygen.c"
+							"name": "storage.type.class.doxygen.camkes"
 						},
 						{
 							"match": "((?<=[\\s*!\\/])[\\\\@](?:a|em|e))\\s+(\\S+)",
 							"captures": {
 								"1": {
-									"name": "storage.type.class.doxygen.c"
+									"name": "storage.type.class.doxygen.camkes"
 								},
 								"2": {
-									"name": "markup.italic.doxygen.c"
+									"name": "markup.italic.doxygen.camkes"
 								}
 							}
 						},
@@ -693,10 +717,10 @@
 							"match": "((?<=[\\s*!\\/])[\\\\@]b)\\s+(\\S+)",
 							"captures": {
 								"1": {
-									"name": "storage.type.class.doxygen.c"
+									"name": "storage.type.class.doxygen.camkes"
 								},
 								"2": {
-									"name": "markup.bold.doxygen.c"
+									"name": "markup.bold.doxygen.camkes"
 								}
 							}
 						},
@@ -704,47 +728,47 @@
 							"match": "((?<=[\\s*!\\/])[\\\\@](?:c|p))\\s+(\\S+)",
 							"captures": {
 								"1": {
-									"name": "storage.type.class.doxygen.c"
+									"name": "storage.type.class.doxygen.camkes"
 								},
 								"2": {
-									"name": "markup.inline.raw.string.c"
+									"name": "markup.inline.raw.string.camkes"
 								}
 							}
 						},
 						{
 							"match": "(?<=[\\s*!\\/])[\\\\@](?:a|anchor|b|c|cite|copybrief|copydetail|copydoc|def|dir|dontinclude|e|em|emoji|enum|example|extends|file|idlexcept|implements|include|includedoc|includelineno|latexinclude|link|memberof|namespace|p|package|ref|refitem|related|relates|relatedalso|relatesalso|verbinclude)\\b(?:\\{[^}]*\\})?",
-							"name": "storage.type.class.doxygen.c"
+							"name": "storage.type.class.doxygen.camkes"
 						},
 						{
 							"match": "(?<=[\\s*!\\/])[\\\\@](?:addindex|addtogroup|category|class|defgroup|diafile|dotfile|elseif|fn|headerfile|if|ifnot|image|ingroup|interface|line|mainpage|mscfile|name|overload|page|property|protocol|section|skip|skipline|snippet|snippetdoc|snippetlineno|struct|subpage|subsection|subsubsection|typedef|union|until|vhdlflow|weakgroup)\\b(?:\\{[^}]*\\})?",
-							"name": "storage.type.class.doxygen.c"
+							"name": "storage.type.class.doxygen.camkes"
 						},
 						{
 							"match": "((?<=[\\s*!\\/])[\\\\@]param)(?:\\s*\\[((?:,?\\s*(?:in|out)\\s*)+)\\])?\\s+(\\b\\w+\\b)",
 							"captures": {
 								"1": {
-									"name": "storage.type.class.doxygen.c"
+									"name": "storage.type.class.doxygen.camkes"
 								},
 								"2": {
 									"patterns": [
 										{
 											"match": "in|out",
-											"name": "keyword.other.parameter.direction.$0.c"
+											"name": "keyword.other.parameter.direction.$0.camkes"
 										}
 									]
 								},
 								"3": {
-									"name": "variable.parameter.c"
+									"name": "variable.parameter.camkes"
 								}
 							}
 						},
 						{
 							"match": "(?<=[\\s*!\\/])[\\\\@](?:arg|attention|author|authors|brief|bug|copyright|date|deprecated|details|exception|invariant|li|note|par|paragraph|param|post|pre|remark|remarks|result|return|returns|retval|sa|see|short|since|test|throw|todo|tparam|version|warning|xrefitem)\\b(?:\\{[^}]*\\})?",
-							"name": "storage.type.class.doxygen.c"
+							"name": "storage.type.class.doxygen.camkes"
 						},
 						{
 							"match": "(?<=[\\s*!\\/])[\\\\@](?:code|cond|docbookonly|dot|htmlonly|internal|latexonly|link|manonly|msc|parblock|rtfonly|secreflist|uml|verbatim|xmlonly|endcode|endcond|enddocbookonly|enddot|endhtmlonly|endinternal|endlatexonly|endlink|endmanonly|endmsc|endparblock|endrtfonly|endsecreflist|enduml|endverbatim|endxmlonly)\\b(?:\\{[^}]*\\})?",
-							"name": "storage.type.class.doxygen.c"
+							"name": "storage.type.class.doxygen.camkes"
 						},
 						{
 							"match": "(?:\\b[A-Z]+:|@[a-z_]+:)",
@@ -756,23 +780,23 @@
 					"match": "^\\/\\* =(\\s*.*?)\\s*= \\*\\/$\\n?",
 					"captures": {
 						"1": {
-							"name": "meta.toc-list.banner.block.c"
+							"name": "meta.toc-list.banner.block.camkes"
 						}
 					},
-					"name": "comment.block.banner.c"
+					"name": "comment.block.banner.camkes"
 				},
 				{
-					"name": "comment.block.c",
+					"name": "comment.block.camkes",
 					"begin": "(\\/\\*)",
 					"beginCaptures": {
 						"1": {
-							"name": "punctuation.definition.comment.begin.c"
+							"name": "punctuation.definition.comment.begin.camkes"
 						}
 					},
 					"end": "(\\*\\/)",
 					"endCaptures": {
 						"1": {
-							"name": "punctuation.definition.comment.end.c"
+							"name": "punctuation.definition.comment.end.camkes"
 						}
 					}
 				},
@@ -780,26 +804,26 @@
 					"match": "^\\/\\/ =(\\s*.*?)\\s*=$\\n?",
 					"captures": {
 						"1": {
-							"name": "meta.toc-list.banner.line.c"
+							"name": "meta.toc-list.banner.line.camkes"
 						}
 					},
-					"name": "comment.line.banner.c"
+					"name": "comment.line.banner.camkes"
 				},
 				{
 					"begin": "((?:^[ \\t]+)?)(?=\\/\\/)",
 					"beginCaptures": {
 						"1": {
-							"name": "punctuation.whitespace.comment.leading.c"
+							"name": "punctuation.whitespace.comment.leading.camkes"
 						}
 					},
 					"end": "(?!\\G)",
 					"patterns": [
 						{
-							"name": "comment.line.double-slash.c",
+							"name": "comment.line.double-slash.camkes",
 							"begin": "(\\/\\/)",
 							"beginCaptures": {
 								"1": {
-									"name": "punctuation.definition.comment.c"
+									"name": "punctuation.definition.comment.camkes"
 								}
 							},
 							"end": "(?=\\n)",
