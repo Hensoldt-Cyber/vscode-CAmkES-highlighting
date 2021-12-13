@@ -1,69 +1,29 @@
-# Visual Studio Code plugin for CAmkES syntax hihlighting
+# CAmkES syntax highlighting
 
-* written in a REGEX dialect called tmLanguage [tmLanguage](https://macromates.com/manual/en/language_grammars)
-* Work in progress: If you encounter a bug please send me a screenshot -> maybe it could be published to the vscode extension marketplace when mature
-* This reuses some parts of the official [Microsoft C syntax extension](https://github.com/microsoft/vscode/tree/main/extensions/cpp) which is published under the MIT License -> though only some parts are copied, a distribution under MIT might be ?neccessary?
+## Overwiev
 
-
-
-## Installation
-
-### Prepackaged version
+* Enables syntax highlighting in VSCode for the CAmkES (component architecture for microkernel-based embedded systems) component system language
+* CAmkES is a component platform that provides support for developing and building static seL4 systems as a collection of interacting components
 
 
-Download the prepackaged package [camkes-syntax-highlighting-0.0.7.vsix](https://wiki.hensoldt-cyber.systems/download/attachments/14844307/camkes-syntax-highlighting-0.0.7.vsix?version=1&modificationDate=1637335449603&api=v2)
+## CAmkES documentation & repository
+
+* [CAmkES documentation] (https://docs.sel4.systems/projects/camkes/)
+* [CAmkEs github] (https://github.com/seL4/camkes-tool)
 
 
-``` 
-code --install-extension camkes-syntax-highlighting-0.0.*.vsix
-```
+## Buggy highlighting? Ideas for improvements?
+
+Please open an issue on github.
+
+It would be most welcome if you could provide the buggy code snippet.
+
+Contributions on github are most welcome. 
+[Repository] (https://github.com)
 
 
+## Credits
 
-### Package it yourself
-
-
-Nodejs  version 14.0.0 or higher is required to package the extension. The apt repositories are currently only supporting version v10.0.0 but we can update it over the npm package manager.
-
-```
-sudo apt install nodejs npm
-sudo npm cahe -clean -f
-sudo npm install -g n
-sudo n stable
-```
-
-
-
-To package we need the vsce package
-
-```
-sudo npm install vsce
-```
-
-
-
-We then need to clone the repo and package it
-
-```
-git clone ssh://git@bitbucket.hensoldt-cyber.systems:7999/hc/vscode-camkes-syntax-highlighting.git
-cd vscode-camkes-syntax-highlighting
-vsce package
-```
-
-
-
-install the package
-
-```
-code --install-extension camkes-syntax-highlighting-0.0.*.vsix
-```
-
-
-### Buffer deprecated warning
-
-There seems to be an bug inside vscode, showing that an internal function is deprecated, when installing an extension from the commandline.
-This seems to be a well known issue, with multiple open tickets and is unrelated to the extension.
-
-[install-extension command throws Buffer deprecated warning](https://github.com/microsoft/vscode/issues/82524)
-
+This plugin is inspired by and partly based on the [official vscode plugin for C/C++](https://github.com/microsoft/vscode/tree/main/extensions/cpp) by Microsoft. 
+Some of the preprocessor and most comment handling is based on this. 
 
