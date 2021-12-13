@@ -8,8 +8,8 @@
 
 ## CAmkES documentation & repository
 
-* [CAmkES documentation] (https://docs.sel4.systems/projects/camkes/)
-* [CAmkEs github] (https://github.com/seL4/camkes-tool)
+* [CAmkES documentation](https://docs.sel4.systems/projects/camkes/)
+* [CAmkEs github](https://github.com/seL4/camkes-tool)
 
 
 ## Buggy highlighting? Ideas for improvements?
@@ -19,7 +19,7 @@ Please open an issue on github.
 It would be most welcome if you could provide the buggy code snippet.
 
 Contributions on github are most welcome. 
-[Repository] (https://github.com)
+[Repository](https://github.com)
 
 
 ## Credits
