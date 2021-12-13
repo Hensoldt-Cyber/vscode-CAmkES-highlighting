@@ -2,9 +2,9 @@
     "name": "camkes-syntax-highlighting",
     "displayName": "camkes-syntax-highlighting",
     "description": "Syntax highlighting for the CAmkES (component architecture for microkernel-based embedded systems) framework language",
-    "version": "0.0.7",
+    "version": "1.0.0",
     "repository": "test",
-    "publisher": "FelixSchladt",
+    "publisher": "felix.schladt@hensoldt-cyber.com",
     "engines": {
         "vscode": "^1.60.0"
     },
