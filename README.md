@@ -1,6 +1,6 @@
 # CAmkES syntax highlighting
 
-## Overwiev
+## Overview
 
 * Enables syntax highlighting in VSCode for the CAmkES (component architecture for microkernel-based embedded systems) component system language
 * CAmkES is a component platform that provides support for developing and building static seL4 systems as a collection of interacting components
