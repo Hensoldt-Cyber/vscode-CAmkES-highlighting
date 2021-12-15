@@ -16,13 +16,9 @@
     ],
     "keywords": [
         "seL4",
-        "sel4",
-        "camkes",
         "CAmkES",
         "microkernel",
-        "hensoldt",
-        "hensodlt cyber",
-        "hensoldt-cyber"
+        "HENSOLDT cyber"
     ],
     "icon": "hensoldt-cyber.png",
     "bugs": {
