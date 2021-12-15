@@ -2,7 +2,7 @@
     "name": "camkes-syntax-highlighting",
     "displayName": "CAmkES highlighting",
     "description": "Syntax highlighting for the CAmkES (component architecture for microkernel-based embedded systems) framework language",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "repository": {
         "type": "git",
         "url": "https://github.com/Hensoldt-Cyber/vscode-CAmkES-highlighting.git"
