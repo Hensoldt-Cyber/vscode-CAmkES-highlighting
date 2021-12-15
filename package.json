@@ -4,13 +4,31 @@
     "description": "Syntax highlighting for the CAmkES (component architecture for microkernel-based embedded systems) framework language",
     "version": "1.0.0",
     "repository": "test",
-    "publisher": "felix.schladt@hensoldt-cyber.com",
+    "publisher": "hensoldt-cyber-gmbh",
     "engines": {
         "vscode": "^1.60.0"
     },
     "categories": [
         "Programming Languages"
     ],
+    "keywords": [
+        "seL4",
+        "sel4",
+        "camkes",
+        "CAmkES",
+        "microkernel",
+        "hensoldt",
+        "hensodlt cyber",
+        "hensoldt-cyber"
+    ],
+    "icon": "hensoldt-cyber.png",
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/Hensoldt-Cyber/vscode-CAmkES-highlighting.git"
+  },
+    "bugs": {
+        "url":"https://github.com/Hensoldt-Cyber/vscode-CAmkES-highlighting/issues"
+    },
     "contributes": {
         "languages": [{
             "id": "CAmkES",

@@ -19,7 +19,6 @@ Please open an issue on github.
 It would be most welcome if you could provide the buggy code snippet.
 
 Contributions on github are most welcome. 
-[Repository](https://github.com)
 
 
 ## Credits
