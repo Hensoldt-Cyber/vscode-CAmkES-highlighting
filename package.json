@@ -2,8 +2,11 @@
     "name": "camkes-syntax-highlighting",
     "displayName": "camkes-syntax-highlighting",
     "description": "Syntax highlighting for the CAmkES (component architecture for microkernel-based embedded systems) framework language",
-    "version": "1.0.0",
-    "repository": "test",
+    "version": "1.1.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Hensoldt-Cyber/vscode-CAmkES-highlighting.git"
+    },
     "publisher": "hensoldt-cyber-gmbh",
     "engines": {
         "vscode": "^1.60.0"
@@ -22,24 +25,29 @@
         "hensoldt-cyber"
     ],
     "icon": "hensoldt-cyber.png",
-    "repository": {
-    "type": "git",
-    "url": "https://github.com/Hensoldt-Cyber/vscode-CAmkES-highlighting.git"
-  },
     "bugs": {
-        "url":"https://github.com/Hensoldt-Cyber/vscode-CAmkES-highlighting/issues"
+        "url": "https://github.com/Hensoldt-Cyber/vscode-CAmkES-highlighting/issues"
     },
     "contributes": {
-        "languages": [{
-            "id": "CAmkES",
-            "aliases": ["CAmkES", "camkes"],
-            "extensions": [".camkes"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "CAmkES",
-            "scopeName": "source.camkes",
-            "path": "./syntaxes/camkes.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "CAmkES",
+                "aliases": [
+                    "CAmkES",
+                    "camkes"
+                ],
+                "extensions": [
+                    ".camkes"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "CAmkES",
+                "scopeName": "source.camkes",
+                "path": "./syntaxes/camkes.tmLanguage.json"
+            }
+        ]
     }
 }
